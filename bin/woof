@@ -1,0 +1,33 @@
+#!/usr/bin/env perl
+
+use v5.10;
+use strict;
+use warnings;
+
+use Dispatch::Fu;
+use Acme::Free::Dog::API qw//;
+use Util::H2O::More      qw/Getopt2h2o o2d/;
+
+my $subcommand = shift @ARGV;
+
+#>>>
+dispatch {
+  xdefault shift, q{random};
+} $subcommand,
+  help       => \&do_help,
+  random     => sub { do_random(\@ARGV) },
+;
+#<<< 
+
+sub do_random {
+    my ($ARGV) = @_;
+    #my $o      = Getopt2h2o $ARGV, {}, qw/category=s/;
+    my $woof    = Acme::Free::Dog::API->new;
+    return printf "%s\n", $woof->random;
+}
+
+sub do_help {
+    warn "woof! subcommand may be one of the following: 'random', or 'help' (prints this!)\n";
+}
+
+__END__
