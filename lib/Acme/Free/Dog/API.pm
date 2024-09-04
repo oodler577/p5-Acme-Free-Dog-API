@@ -116,6 +116,11 @@ ents to get a URL for a random dog image. See below for all subcommands.
 
 =head1 DESCRIPTION
 
+This is the Perl API for the Dog API, profiled at L<https://www.freepublicapis.com/dog-api>. 
+
+Contributed as part of the B<FreePublicPerlAPIs> Project described at,
+L<https://github.com/oodler577/FreePublicPerlAPIs>.
+
 This fun module is to demonstrate how to use L<Util::H2O::More> and
 L<Dispatch::Fu> to make creating easily make API SaaS modules and
 clients in a clean and idiomatic way. These kind of APIs tracked at
